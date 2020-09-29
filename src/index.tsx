@@ -3,10 +3,12 @@ import React from "react";
 import {render} from "react-dom";
 import './index.less';
 
-export const App = (props: any): JSX.Element => (
-  <h1>Hello {props.hello}</h1>
+import { RendererContainer } from './containers/renderer-container/RendererContainer';
+
+export const App = (): JSX.Element => (
+    <RendererContainer/>
 );
 
 document.addEventListener('DOMContentLoaded', () => render(
-  <App hello="World" />, document.getElementById('app')
+  <App />, document.getElementById('app')
 ));
