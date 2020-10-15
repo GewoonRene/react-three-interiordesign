@@ -53,6 +53,7 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json'],
     alias: {
+      '@assets': path.resolve(__dirname, '../src/assets'),
       '@components': path.resolve(__dirname, '../src/components')
     }
   },
@@ -78,7 +79,7 @@ module.exports = {
         viewport: 'width=device-width, initial-scale=1',
         description: appConfig['name_here.app.description']
       }
-    })
+    }),
   ],
   module: {
     rules: [
@@ -102,6 +103,14 @@ module.exports = {
             }
           }
         ]
+      },
+      {
+        test: /\.dae?/,
+        use: [
+          {
+            loader: 'file-loader',
+          }
+        ] 
       }
     ]
   }

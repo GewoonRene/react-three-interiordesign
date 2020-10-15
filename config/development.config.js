@@ -7,6 +7,7 @@ module.exports = merge(common, {
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
+    https: true,
     port: 8080,
     disableHostCheck: true,
     historyApiFallback: true,
@@ -14,7 +15,12 @@ module.exports = merge(common, {
     overlay: true,
     open: true,
     stats: 'errors-only',
-    hot: true
+    hot: true,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+      "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
+    }
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin()
